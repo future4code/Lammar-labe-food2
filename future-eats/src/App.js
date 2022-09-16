@@ -1,10 +1,13 @@
-
+import Rotas from './routes/routes'
+import StyledGlobal from './StyledGlobal';
+import { FutureEatsProvider } from './GlobalContext/FutureEatsProvider';
 
 function App() {
   return (
-    <div>
-    
-    </div>
+    <FutureEatsProvider>
+      <Rotas/>
+      <StyledGlobal/>
+    </FutureEatsProvider>
   );
 }
 

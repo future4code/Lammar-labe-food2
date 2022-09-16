@@ -1,12 +1,12 @@
 import React from 'react';
 
-function Home () {
+function Registration () {
 
     return (
         <div>
-            <h1>HomePage</h1>
+
         </div>
     )
 }
 
-export default Home;
+export default Registration;
