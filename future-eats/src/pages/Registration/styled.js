@@ -14,11 +14,16 @@ export const NavBar = styled.div`
   backdrop-filter: blur(10px);
   box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
   background-color: #fff;
+  button{
+    width: 2em;
+    border-radius: 50%;
+    border: none;
+    margin: 10px 321px 0 16px;
+  object-fit: contain;
+  }
 `;
 export const ArrowBack = styled.img`
-  width: 1.5em;
-  margin: 10px 321px 0 16px;
-  object-fit: contain;
+  
 `;
 
 export const Logo = styled.img`
