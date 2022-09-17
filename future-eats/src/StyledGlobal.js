@@ -6,7 +6,6 @@ export default createGlobalStyle `
         padding: 0;
     }
     body {
-        
         width:360px;
         height: 640px;
         border: solid 1px black; 
