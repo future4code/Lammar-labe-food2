@@ -15,7 +15,7 @@ const Rotas = () => {
                 <Route index path = '/signin'element = {<Login/>}/>
                 <Route index path = '/signup' element= {<Registration/>}/>
                 <Route index path = '/signup/address' element = {<AddressRegistration/>}/>
-                <Route index path = '/restaurant/:id' element = {<RestaurantDetails/>}/>
+                <Route index path = '/restaurants/:id' element = {<RestaurantDetails/>}/>
                 <Route index path = '/cart'element = {<Cart/>}/>
                 <Route index path = '/profile'element = {<Profile/>}/>
             </Routes>
