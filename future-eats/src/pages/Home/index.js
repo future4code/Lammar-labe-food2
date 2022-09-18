@@ -9,12 +9,14 @@ import axios from "axios";
 import { baseUrl, tempToken, restaurantListRequest } from '../../constants/constants' ;
 import { useEffect } from 'react';
 import { RestaurantCards } from '../../components/restaurantCard';
+import { Filter } from '../../components/filter/styled';
 
 function Home () {
     const [restaurantDisplay, setRestaurantsDisplay] = useState([])
     const restaurantList = []
     const [filter, setFilter] = useState("")
     const [restaurantFront, setRestaurantFront] = useState([])
+    const categories = ["Árabe", "Asiática", "Hamburguer","Italiana", "Sorvetes", "Carnes", "Baiana", "Petiscos", "Mexicana" ]
 
     useEffect(() => {
         restaurantListRequest.then((response) => {
@@ -31,34 +33,46 @@ function Home () {
                 })
             })
             setRestaurantsDisplay(restaurantList)
-            setFilter(filter)
         }).catch((error) => {
             console.log(error.message)
         })
     }, [])
 
     useEffect(() => {
-        const restaurants = restaurantDisplay.map((restaurant) => {
+        const restaurants = restaurantDisplay.filter((restaurant) => {
+            if(!filter){
+                return true
+            }
+            return restaurant.category === filter
+        }).map((restaurant) => {
             return <RestaurantCards 
                         key = {restaurant.id}
                         name = {restaurant.name}
                         logo = {restaurant.logo}
                         deliveryTime = {restaurant.deliveryTime}
                         shipping = {restaurant.shipping}
+                        id = {restaurant.id}
                     />
         })
         setRestaurantFront(restaurants)
-    }, [filter])
-
-    
-
-        
+    }, [restaurantDisplay, filter])
 
     return (
         <div>
             <Navbar>
                 <Title>FutureEats</Title>
             </Navbar>
+            <Filter>
+                {categories.map((category, index) => <span onClick={() => {
+                    if(filter === category){
+                        setFilter("")
+                    }else{
+                        setFilter(category)
+                    }
+                    
+                }} 
+                    key = {index}>{category}</span>)}
+            </Filter>
             {restaurantFront && restaurantFront}
             <Tabbar>
                 <Tabitem1>

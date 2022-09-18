@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Rectangle = styled.div`
     width: 360px;
     height: 196px;
-    margin: 50px 0 0;
+    margin: 5px 0 0;
     padding: 8px 16px 0;
 `
 export const RestaurantCard = styled.div`
