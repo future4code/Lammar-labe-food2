@@ -1,10 +1,13 @@
 import { DeliveryTime, Rectangle, RestaurantCard, RestaurantName, Shipping } from "./styled";
+import {useNavigate} from "react-router-dom";
+import { goToRestaurantDetailsPage } from "../../routes/coodinator";
 
 export function RestaurantCards(props) {
+    const navigate = useNavigate();
 
     return (
         <Rectangle>
-            <RestaurantCard>
+            <RestaurantCard onClick={() => goToRestaurantDetailsPage(navigate, props.id)}>
                 <img src= {props.logo}/>
                 <RestaurantName>
                     {props.name}

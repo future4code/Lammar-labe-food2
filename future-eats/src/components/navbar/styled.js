@@ -22,7 +22,7 @@ export const Title = styled.span`
     line-height: normal;
     letter-spacing: -0.39px;
     text-align: center;
-    color: var(--black);
+    color: black;
     align-self: center;
     margin:auto;
 `
