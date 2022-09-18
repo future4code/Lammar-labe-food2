@@ -10,7 +10,7 @@ export default createGlobalStyle `
         width:360px;
         height: 640px;
         border: solid 1px black; 
-        
+    
     }
 
 
