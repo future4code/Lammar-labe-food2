@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {baseUrl, tempToken} from "../../constants/constants"
 import axios from "axios";
 import { Navbar, Title } from '../../components/navbar/styled';
-import {Adress, DeliveryTime, Image, RestaurantCategory, RestaurantName, Shipping} from '../RestaurantDetails/styled' 
+import {Adress, DeliveryTime, Image, ItemName, Main, PathCopy, ProductDescription, ProductDetails, ProductImage, ProductPrice, Rectangle, RestaurantCategory, RestaurantName, Shipping} from '../RestaurantDetails/styled' 
 
 
 function RestaurantDetails () {
@@ -49,22 +49,25 @@ function RestaurantDetails () {
                 <br></br>
                 <Adress>{restaurantDetail.address}</Adress>
             </div>
-            }
-
+            }   
+                <br></br>
+                <Main> Principais </Main>
+                <PathCopy></PathCopy>
             <div>
-                {restaurantDetail.products && restaurantDetail.products.map((product)=> {
-                    return (
-                        <div key={product.id}> 
-                        <img src={product.photoUrl}></img>
-                        {product.name} 
-                        {product.description}
-                        {product.price}
-                        </div>
-                    )
-                })}
-            </div>
+                    {restaurantDetail.products && restaurantDetail.products.map((product)=> {
+                        return (
+                            <Rectangle key={product.id}> 
+                                <ProductImage src={product.photoUrl}></ProductImage>
+                                <ProductDetails>
+                                    <ItemName>{product.name}</ItemName>
+                                    <ProductDescription>{product.description}</ProductDescription>
+                                    <ProductPrice>R${product.price}</ProductPrice>
+                                </ProductDetails>
+                            </Rectangle>
+                        )
+                    })}
 
-           
+            </div>
             
         </div>
     )
