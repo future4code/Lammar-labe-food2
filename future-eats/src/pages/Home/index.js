@@ -1,15 +1,20 @@
 import React from 'react';
-import { Tabbar, Tabitem1, Tabitem2, Tabitem3 } from '../../components/tabbar/styled';
+import { Tabbar, Tabitem1, Tabitem2, Tabitem3 } from '../../components/tabBar/styled';
 import { Navbar, Title } from '../../components/navbar/styled';
 import Avatar from '../../img/avatar.svg'
 import HomeIcon from '../../img/homepage.svg'
 import CartIcon from '../../img/shopping-cart.svg'
+import SearchIcon from '../../img/search.svg'
 import { useState } from 'react';
 import axios from "axios";
 import { baseUrl, tempToken, restaurantListRequest } from '../../constants/constants' ;
 import { useEffect } from 'react';
 import { RestaurantCards } from '../../components/restaurantCard';
 import { Filter } from '../../components/filter/styled';
+import useForm from '../../hooks/useForm';
+import { SearchBox } from '../../components/searchBox/styled';
+import { Form } from 'react-router-dom';
+import { RestaurantName } from '../../components/restaurantCard/styled';
 
 function Home () {
     const [restaurantDisplay, setRestaurantsDisplay] = useState([])
@@ -17,6 +22,12 @@ function Home () {
     const [filter, setFilter] = useState("")
     const [restaurantFront, setRestaurantFront] = useState([])
     const categories = ["Árabe", "Asiática", "Hamburguer","Italiana", "Sorvetes", "Carnes", "Baiana", "Petiscos", "Mexicana" ]
+    const [query, setQuery] = useState("")
+    
+
+    const handleInputQuery = (e) => {
+        setQuery(e.target.value)
+    }
 
     useEffect(() => {
         restaurantListRequest.then((response) => {
@@ -44,6 +55,12 @@ function Home () {
                 return true
             }
             return restaurant.category === filter
+        }).filter((restaurant) => {
+            if(!query){
+                return true
+            }
+            return restaurant.name.toUpperCase().includes(query.toUpperCase())
+
         }).map((restaurant) => {
             return <RestaurantCards 
                         key = {restaurant.id}
@@ -55,13 +72,17 @@ function Home () {
                     />
         })
         setRestaurantFront(restaurants)
-    }, [restaurantDisplay, filter])
+    }, [restaurantDisplay, filter, query])
 
     return (
         <div>
             <Navbar>
                 <Title>FutureEats</Title>
             </Navbar>
+            <SearchBox>
+                <img src={SearchIcon} />
+                <input placeholder='Restaurante' value={query} onChange = {handleInputQuery} ></input>
+            </SearchBox>
             <Filter>
                 {categories.map((category, index) => <span onClick={() => {
                     if(filter === category){
