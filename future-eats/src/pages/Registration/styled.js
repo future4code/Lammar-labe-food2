@@ -48,8 +48,22 @@ export const Tittle = styled.div`
   padding: 12px 32px;
 `;
 
-export const Form = styled.form`
+export const FormContainer = styled.form`
   margin: 0 1em;
+  legend{
+    font-family: Roboto;
+  width: 6em;
+  font-size: 12px;
+  letter-spacing: -0.29px;
+  color: #d0d0d0;
+  }
+  fieldset{
+  height: 1.7em;
+  padding: 1em 0.6em;
+  border-radius: 4px;
+  border: solid 1px #d0d0d0;
+  margin-bottom: 1em;
+  }
 `;
 
 export const Rectangle = styled.fieldset`
@@ -60,7 +74,7 @@ export const Rectangle = styled.fieldset`
   margin-bottom: 1em;
 `;
 
-export const Input = styled.input`
+export const InputStyled = styled.input`
   width: 19em;
   height: 1em;
   font-family: "Roboto", sans-serif;
@@ -79,7 +93,7 @@ export const Legend = styled.legend`
   color: #d0d0d0;
 `;
 
-export const Button = styled.button`
+export const ButtonSubmit = styled.button`
   margin-top: 1em;
   width: 24em;
   padding: 0.8em;
@@ -95,20 +109,4 @@ export const Button = styled.button`
   }
 `;
 
-export const ViewPass = styled.img`
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-  position: relative;
-  left: 17.5em;
-  bottom: 1.4em;
-  `;
-export const NoViewPass = styled.img`
-    width: 24px;
-  height: 24px;
-  object-fit: contain;
-  position: relative;
-  left: 16em;
-  bottom: 1.45em;
-  color: #d0d0d0;
-`;
+

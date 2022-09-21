@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios"
+import { useState } from "react";
+
 
 const useForm = (initialState) => {
     const [form, setForm] = useState(initialState)
@@ -7,6 +7,7 @@ const useForm = (initialState) => {
     const onChange = (event) => {
         const {name,value} = event.target
         setForm ({...form, [name]: value})
+        
     }
 
     const clearInputs = ()=>{
