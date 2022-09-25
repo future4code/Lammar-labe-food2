@@ -1,7 +1,20 @@
-import React from 'react';
-import { Button } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import { Button, useStatStyles } from '@chakra-ui/react'
+import useForm from '../../hooks/useForm'
+import { useNavigate } from 'react-router-dom';
 
 function Login () {
+    const navigate = useNavigate();
+
+    const [ form, onChange, clearInputs ] = useForm({
+        email: "",
+        password: ""
+    });
+
+    const [ isEmailValid, setIsEmailValid ] = useState(true);
+    const [ isPasswordValid, setIsPasswordValid] = useState(true);
+
+
 
     return (
         <div>
@@ -9,12 +22,12 @@ function Login () {
                 <form onSubmit={onSubmit}>
                     <EmailInput 
                         value={form.email}
-                        onChange={onChangeInputs}
+                        onChange={onChange}
                         isValid={isEmailValid}
                     />
                     <PasswordInput 
                         value={form.password}
-                        onChange={onChangeInputs}
+                        onChange={onChange}
                         isValid={isPasswordValid}
                     />
                     <Button type="submit" variant="button">Entrar</Button>
