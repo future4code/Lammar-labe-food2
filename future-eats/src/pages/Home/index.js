@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabbar, Tabitem1, Tabitem2, Tabitem3 } from '../../components/tabBar/styled';
+import { Tabbar, Tabitem1, Tabitem2, Tabitem3 } from '../../components/tabbar/styled';
 import { Navbar, Title } from '../../components/navbar/styled';
 import Avatar from '../../img/avatar.svg'
 import HomeIcon from '../../img/homepage.svg'
