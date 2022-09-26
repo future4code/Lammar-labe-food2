@@ -4,7 +4,7 @@ import * as RoutePages from "../../routes/coodinator";
 import useForm from "../../hooks/useForm";
 import logo from "../../images/logo-future-eats/logo-future-eats-invert.png";
 import arrowBack from "../.././images/arrowBack/back.png";
-import { cpf } from "cpf-cnpj-validator";
+//import { cpf } from "cpf-cnpj-validator";
 import {
   SignAll as SignUp,
   Logo,
