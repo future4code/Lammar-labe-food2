@@ -1,4 +1,5 @@
-// import React, { useState } from 'react';
+ import React, { useState, useEffect } from 'react';
+import TelaInicio from '../../components/inicio';
 // import { Button, useStatStyles } from '@chakra-ui/react'
 // import useForm from '../../hooks/useForm'
 // import { useNavigate } from 'react-router-dom';
@@ -39,3 +40,27 @@
 // }
 
 // export default Login;
+
+function Login() {
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000);
+      }, []);
+
+    return (
+        <div>     
+        {
+            loading && <TelaInicio />
+        }
+        {
+            !loading && <p>Olá mundo</p>
+        }
+    </div>
+    )
+}
+
+export default Login
