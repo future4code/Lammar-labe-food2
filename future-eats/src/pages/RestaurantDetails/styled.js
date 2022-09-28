@@ -1,10 +1,55 @@
 import styled from "styled-components";
+import StyledGlobal from "../../StyledGlobal";
+
+export const Title =styled.span`
+    width: 84px;
+    height: 19px;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.39px;
+    text-align: center;
+    color: black;
+`
+
+export const UpperBar = styled.div`
+    width: 360px;
+    height: 20px;
+    padding: 0 5px 0 0;
+`
+export const TitleBar = styled.div `
+    width: 175px;
+    height: 44px;
+    margin: 20px 92px 0 54px;
+    padding: 13px 45.5px 12px;
+`
+export const Navbar = styled.div`
+    width: 360px;
+    height: 64px;
+    margin: 0 0 17px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+
+
+`
+export const ArrowImage = styled.img`
+    width: 23px;
+    height: 24px;
+    margin: 10px 54px 10px 16px;
+    object-fit: contain;
+`
 
 export const Image = styled.img `
     width: 328px;
     height: 120px;
     margin: 17px 16px 12px;
     object-fit: contain;
+    
 `
 
 export const RestaurantName =styled.span `
