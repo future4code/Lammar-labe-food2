@@ -1,45 +1,16 @@
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import TelaInicio from '../../components/inicio';
-// import { Button, useStatStyles } from '@chakra-ui/react'
-// import useForm from '../../hooks/useForm'
-// import { useNavigate } from 'react-router-dom';
+import {
+    Logo,
+    Tittle,
+    Text,
+    FormContainer,
+    ButtonSubmit
+  } from "../../components/styled-containers";
+import { EmailInput } from "../../components/inputs/email";
+import { PasswordInput } from "../../components/inputs/password";
+import logo from "../../images/logo-future-eats/logo-future-eats-invert.png";
 
-// function Login () {
-//     const navigate = useNavigate();
-
-//     const [ form, onChange, clearInputs ] = useForm({
-//         email: "",
-//         password: ""
-//     });
-
-//     const [ isEmailValid, setIsEmailValid ] = useState(true);
-//     const [ isPasswordValid, setIsPasswordValid] = useState(true);
-
-
-
-//     return (
-//         <div>
-//             <div>
-//                 <form onSubmit={onSubmit}>
-//                     <EmailInput 
-//                         value={form.email}
-//                         onChange={onChange}
-//                         isValid={isEmailValid}
-//                     />
-//                     <PasswordInput 
-//                         value={form.password}
-//                         onChange={onChange}
-//                         isValid={isPasswordValid}
-//                     />
-//                     <Button type="submit" variant="button">Entrar</Button>
-//                     <Button onClick={() => goToSignUpPage(navigate)} type="button" variant="button-cadastro">Não possui cadastro? Clique aqui.</Button>
-//                 </form>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default Login;
 
 function Login() {
 
@@ -48,18 +19,39 @@ function Login() {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 3000);
-      }, []);
+        }, 2000);
+    }, []);
 
     return (
-        <div>     
-        {
-            loading && <TelaInicio />
-        }
-        {
-            !loading && <p>Olá mundo</p>
-        }
-    </div>
+        <div>
+            {
+                loading && <TelaInicio />
+            }
+            {
+                !loading && <p>
+                    <Logo src={logo} />
+                    <Tittle>
+                        <Text>Entrar</Text>
+                    </Tittle>
+                    <FormContainer onSubmit={onSubmit}>
+                        <EmailInput
+                            isValid={emailValid}
+                            value={form.email}
+                            onChange={onChange}
+                        />
+                        <PasswordInput
+                            value={form.password}
+                            onChange={onChange}
+                            isValid={isPasswordValid}
+                        />
+
+                        <ButtonSubmit>
+                            <p>Entrar</p>
+                        </ButtonSubmit>
+                    </FormContainer>
+                </p>
+            }
+        </div>
     )
 }
 
