@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TelaInicio from '../../components/inicio';
+import { useNavigate } from "react-router-dom";
+import * as RoutePages from "../../routes/coodinator";
 import {
     Logo,
     Tittle,
@@ -14,7 +16,7 @@ import useForm from "../../hooks/useForm";
 
 
 function Login() {
-
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -35,8 +37,9 @@ function Login() {
         console.log(form);
         setEmailValid(/[a-zA-Z)-9]+@[a-z]{3}.[a-z]?/.test(form.email));
         setIsPasswordValid(
-            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(form.password)
+            /.{3,}/.test(form.password)
         );
+        RoutePages.goToHomePage(navigate)
     };
 
     return (

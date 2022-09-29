@@ -23,7 +23,7 @@ export const UpperBar = styled.div`
 export const TitleBar = styled.div `
     width: 175px;
     height: 44px;
-    margin: 20px 92px 0 54px;
+    margin: 20px 92px 20px 54px;
     padding: 13px 45.5px 12px;
 `
 export const Navbar = styled.div`
@@ -34,14 +34,14 @@ export const Navbar = styled.div`
     backdrop-filter: blur(10px);
     box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
     background-color: #fff;
-
+    display:flex;
+    align-items: center;
+    justify-content: center;
 
 `
 export const ArrowImage = styled.img`
     width: 23px;
     height: 24px;
-    margin: 10px 54px 10px 16px;
-    object-fit: contain;
 `
 
 export const Image = styled.img `
@@ -163,6 +163,7 @@ export const Rectangle = styled.div `
     border: solid 1px #b8b8b8;
     display: flex;
     flex-direction: row;
+
 `
 export const ProductImage = styled.img `
     width: 96px;

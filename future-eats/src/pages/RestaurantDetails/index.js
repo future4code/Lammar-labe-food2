@@ -38,9 +38,9 @@ function RestaurantDetails () {
             <Navbar>
                 <UpperBar></UpperBar>
                 <ArrowImage src={Arrow} onClick={() => MyRoutes.goToHomePage(navigate)}></ArrowImage>
-                {/*  <TitleBar> 
+                 <TitleBar> 
                         <Title>Restaurante</Title>
-                    </TitleBar> */}
+                </TitleBar>
             </Navbar>
             
             {restaurantDetail && 
