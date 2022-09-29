@@ -9,11 +9,12 @@ export const restaurantListRequest = axios.get(`${baseUrl}restaurants`, {
 })
 
 export const Login = async (body) => {
-    const { data } = await axios.post(`${baseUrl}/signin`, body);
+    const { data } = await axios.post(`${baseUrl}signin`, body);
     return data;
 }
 
-export const Signup = async (body) => {
-    const { data } = await axios.post(`${baseUrl}/signup`)
+export const SignupToken = async (body) => {
+    const { data } = await axios.post(`${baseUrl}signup`, body)
+    return data;
 }
 
