@@ -6,10 +6,11 @@ import {
     Text,
     FormContainer,
     ButtonSubmit
-  } from "../../components/styled-containers";
+} from "../../components/styled-containers";
 import { EmailInput } from "../../components/inputs/email";
 import { PasswordInput } from "../../components/inputs/password";
 import logo from "../../images/logo-future-eats/logo-future-eats-invert.png";
+import useForm from "../../hooks/useForm";
 
 
 function Login() {
@@ -21,6 +22,22 @@ function Login() {
             setLoading(false)
         }, 2000);
     }, []);
+
+    const [form, onChange, clearInputs] = useForm({
+        name: "",
+        email: ""
+    });
+
+    const [emailValid, setEmailValid] = useState(true);
+    const [isPasswordValid, setIsPasswordValid] = useState(true);
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(form);
+        setEmailValid(/[a-zA-Z)-9]+@[a-z]{3}.[a-z]?/.test(form.email));
+        setIsPasswordValid(
+            /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(form.password)
+        );
+    };
 
     return (
         <div>
