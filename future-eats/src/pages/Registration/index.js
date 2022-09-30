@@ -4,7 +4,6 @@ import * as RoutePages from "../../routes/coodinator";
 import useForm from "../../hooks/useForm";
 import logo from "../../images/logo-future-eats/logo-future-eats-invert.png";
 import arrowBack from "../.././images/arrowBack/back.png";
-//import { cpf } from "cpf-cnpj-validator";
 import {
   SignAll as SignUp,
   Logo,
@@ -20,6 +19,7 @@ import { NameInput } from "../../components/inputs/name";
 import { CpfInput } from "../../components/inputs/cpf";
 import { PasswordInput } from "../../components/inputs/password";
 import { ConfirmPasswordInput } from "../../components/inputs/confirmPassword";
+import { SignupToken } from "../../constants/constants"
 
 function Registration() {
   const navigate = useNavigate();
@@ -29,18 +29,31 @@ function Registration() {
     cpf: "",
     password: "",
   });
-
+  const [nameValid, setNameValid] = useState(true);
   const [emailValid, setEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [cpfValid, setCpfValid] = useState(true);
-  const onSubmit = (e) => {
+
+  const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+
     setEmailValid(/[a-zA-Z)-9]+@[a-z]{3}.[a-z]?/.test(form.email));
-    setIsPasswordValid(
-      /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(form.password)
-    );
+    setIsPasswordValid(/.{3,}/.test(form.password));
     setCpfValid(/\d{3}\.\d{3}\.\d{3}-\d{2}/.test(form.cpf));
+    setNameValid((name, length = 2) => new RegExp(`.{${length},}`).test(name))
+    try{
+      const { token } = nameValid && emailValid  && cpfValid && isPasswordValid && await SignupToken({
+        name: form.name,
+        email: form.email,
+        cpfValid : form.cpf,
+        password: form.password,
+      })
+      localStorage.getItem("future.token", token)
+      RoutePages.goToHomePage(navigate)
+      console.log("deu certo")
+    } catch (e) {
+      console.log("Erro:", e.message)
+    }
   };
 
   return (
