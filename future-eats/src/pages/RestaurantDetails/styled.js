@@ -48,8 +48,9 @@ export const Image = styled.img `
     width: 328px;
     height: 120px;
     margin: 17px 16px 12px;
-    object-fit: contain;
-    
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 `
 
 export const RestaurantName =styled.span `
@@ -137,9 +138,10 @@ export const Main = styled.span `
 
 export const PathCopy = styled.div `
     width: 328px;
-/*     height: 1px; */
+    height: 1px;
     margin: 0 16px 7px;
     border: solid 1px black;
+    background-color: black
 `
 
 export const ItemName =styled.div`
@@ -167,9 +169,11 @@ export const Rectangle = styled.div `
 `
 export const ProductImage = styled.img `
     width: 96px;
-    height: 112px;
+    height: 110px;
     margin: 0 16px 0 0;
-    object-fit: contain;
+    object-fit: cover;
+    border-top-left-radius: 6.8px;
+    border-bottom-left-radius: 6.8px;
 `
 
 export const ProductDescription = styled.span `
@@ -203,4 +207,37 @@ export const ProductPrice = styled.span `
 export const ProductDetails = styled.div`
     display: flex;
     flex-direction: column;
+`
+export const ButtonRectangle = styled.div `
+    width: 91px;
+    height: 31px;
+    /* margin: 7px 0 0 8px; */
+    margin-top: 80px;
+    margin-left: -108px;
+    padding: 8px 20.5px 9px 21.5px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border: solid 1px #5cb646;
+
+    button {
+        width: 48px;
+        height: 14px;
+        font-family: Roboto;
+        font-size: 12px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.29px;
+        text-align: center;
+        color: #5cb646;
+        display: flex;
+    }
+`
+
+export const Loading = styled.div`
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
 `
